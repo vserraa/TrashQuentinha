@@ -1,0 +1,7 @@
+1. Usuário devidamente cadastrado tenta fazer login no sistema com senha correta
+2. Usuário devidamente cadastrado tenta fazer login no sistema com senha incorreta
+3. Usuário que ainda não se cadastrou tenta fazer login no sistema
+4. Usuário ainda não cadastrado se cadastra no sistema
+5. Usuário já cadastrado tenta se cadastrar no sistema
+6. Usuário ainda não cadastrado tenta se cadastrar com senha inválida
+7. Usuário se cadastra no sitema e em seguida tenta fazer login
