@@ -6,20 +6,12 @@
 </head>
 <body>
 
-  <div id="login_div" class="main-div">
+  <div id="login_div">
     <h3>TrashQuentinha Login</h3>
     <input type="email" placeholder="Email..." id="email_field" />
     <input type="password" placeholder="Password..." id="password_field" />
-
-    <button onclick="login()">Login</button>
+    <button onclick = "login()">Login</button>
   </div>
-
-  <div id="user_div" class="loggedin-div">
-    <h3>Você está logado.</h3>
-    <p id="user_para"></p>
-    <button onclick="logout()">Logout</button>
-  </div>
-
 
   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 
@@ -37,7 +29,8 @@
     };
     firebase.initializeApp(config);
   </script>
-  <script src="index.js"></script>
+
+  <script src="login.js"></script>
 
 </body>
 </html>

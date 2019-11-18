@@ -1,21 +1,25 @@
 <html>
 <head>
-  <title>TrashQuentinha</title>
+  <title>Pagina Pessoal</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-  <div id="register_div">
-    <h3>TrashQuentinha Sign up</h3>
-    <input type="email" placeholder="Email..." id="email_field" />
-    <input type="password" placeholder="Password..." id="password_field" />
-
-    <button onclick="register()">Sign up</button>
+  <div id="logout_div">
+    <h3>Você está logado.</h3>
+    <p id="cur_user"></p>
+    <button onclick="logout()">Logout</button>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <div id = "user_data">
+    <p id = "total_quentinhas"></p>
+  </div>
 
+  <button>Depositar quentinha!</button>
+  <button>Coletar recompensas!</button>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>
     // Initialize Firebase
     var config = {
@@ -30,7 +34,6 @@
     };
     firebase.initializeApp(config);
   </script>
-  <script src="register.js"></script>
-
+  <script src="personal.js"></script>
 </body>
 </html>
