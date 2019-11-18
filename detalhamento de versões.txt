@@ -1,0 +1,21 @@
+versão 1.0.0 => 
+. Implementação da arquitetura básica da aplicação web;
+. Links mais flúidos na aplicação web em geral (melhora da user experience);
+. Criação de servidor NodeJs para aplicação;
+. Criação de banco de dados MongoDB para aplicação;
+. Criação de método GET no servidor para retornar quantidade de quentinhas já recicladas pelo usuário;
+. Criação de página pessoal que informa quantas quentinhas o usuário já reciclou;
+. Criação de botões para depóisto de nova quentinha e para coleta de recompensas;
+
+versão 1.1.0 =>
+. Consistência entre firebase e mongoDB garantida;
+. Novo método POST no servidor implementado para criação de usuário de forma consistente;
+. Novo método POST no servidor implementado para depósito de quentinha (versão inicial);
+. Implementação de feature que atualiza a página pessoal depois de um depósito de quentinha;
+
+#TODO:
+. Implementação dos forncecedores;
+. Melhorar sistema de depósito de quentinhas;
+. Implementação da coleta de recompensas;
+. Integração com o hardware do sistema;
+. Melhorar (bastante) a interface do usuário;
