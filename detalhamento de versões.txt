@@ -12,10 +12,3 @@ versão 1.1.0 =>
 . Novo método POST no servidor implementado para criação de usuário de forma consistente;
 . Novo método POST no servidor implementado para depósito de quentinha (versão inicial);
 . Implementação de feature que atualiza a página pessoal depois de um depósito de quentinha;
-
-#TODO:
-. Implementação dos forncecedores;
-. Melhorar sistema de depósito de quentinhas;
-. Implementação da coleta de recompensas;
-. Integração com o hardware do sistema;
-. Melhorar (bastante) a interface do usuário;

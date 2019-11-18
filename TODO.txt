@@ -1,0 +1,8 @@
+#TODO:
+. Criação de testes unitáiros e escritos (ATRASADO);
+. Uso de ferramentes de integração contínua (ATRASADO);
+. Implementação dos forncecedores;
+. Melhorar sistema de depósito de quentinhas;
+. Implementação da coleta de recompensas;
+. Integração com o hardware do sistema;
+. Melhorar (bastante) a interface do usuário;
