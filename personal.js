@@ -9,10 +9,29 @@ function get_total_quentinhas(uid, callback) {
   } 
 } 
 
+function post_quentinha(uid, callback) {
+  var http = new XMLHttpRequest();
+  const url = "http://127.0.0.1:3000/depositarQuentinha?uid=" + uid;
+  http.open("POST", url);
+  http.send();
+  http.onreadystatechange = function() { 
+    if(this.readyState == 4 && this.status == 200)
+      callback(http.responseText);
+  } 
+}
+
+function depositar_quentinha() {
+  var user = firebase.auth().currentUser;
+  post_quentinha(user.uid, function () {
+    get_total_quentinhas(user.uid, function() {
+      window.location.reload();
+    })
+  })
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-
     document.getElementById("logout_div").style.display = "block";
 
     var user = firebase.auth().currentUser;

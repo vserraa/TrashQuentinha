@@ -26,19 +26,35 @@ app.get('/totalQuentinhas', function (req, res) {
 	});
 });
 
-app.get('/depositarQuentinha', function (req, res) {
+app.post('/depositarQuentinha', function (req, res) {
 	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
 		const db = client.db('TrashQuentinhaDB');
 		var collection = db.collection('users');
 		var user_email = req.query['email'];
 		var user_UID = req.query['uid'];
-		collection.updateOne({email : user_email}, { $inc: {'totalQuentinhas' : 1} }, function(err, result) {
+		collection.updateOne({UID : user_UID}, { $inc: {'totalQuentinhas' : 1} }, function(err, result) {
 			assert.equal(err, null);
 			console.log("Update was succesfull");
+			res.sendStatus(200);
 			client.close();
 		});
 	});
 });
+
+app.post('/registrarUsuario', function(req, res) {
+	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
+		const db = client.db('TrashQuentinhaDB');
+		var collection = db.collection('users');
+		var user_email = req.query['email'];
+		var user_UID = req.query['uid'];
+		collection.insertOne({'email': user_email, 'UID' : user_UID, 'totalQuentinhas' : 0}, function(err, result) {
+			assert.equal(err, null);
+			console.log("User was created.");
+			res.sendStatus(200);
+			client.close();
+		});
+	});
+})
 
 var server = app.listen(3000, function () {
 	console.log('Server connected. Waiting for requests.');
