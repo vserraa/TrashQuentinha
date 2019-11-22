@@ -56,6 +56,21 @@ app.post('/registrarUsuario', function(req, res) {
 	});
 })
 
+app.post('/deletarUsuario', function(req, res) {
+	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
+		const db = client.db('TrashQuentinhaDB');
+		var collection = db.collection('users');
+		var user_email = req.query['email'];
+		var user_UID = req.query['uid'];
+		collection.deleteOne({UID: user_UID}, function(err, result) {
+			assert.equal(err, null);
+			console.log("User was deleted.");
+			res.sendStatus(200);
+			client.close();
+		});
+	});
+})
+
 var server = app.listen(3000, function () {
 	console.log('Server connected. Waiting for requests.');
 });

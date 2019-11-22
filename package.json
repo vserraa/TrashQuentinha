@@ -1,0 +1,38 @@
+{
+  "name": "trash-quentinha",
+  "version": "1.1.0",
+  "description": "Projeto para disciplina IF682 do CIn-UFPE",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Vinicius Serra - vssm@cin.ufpe.br",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.3",
+    "npm": "^6.12.1",
+    "requests": "^0.3.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vserraa/TrashQuentinha.git"
+  },
+  "keywords": [
+    "nodejs",
+    "js",
+    "html"
+  ],
+  "bugs": {
+    "url": "https://github.com/vserraa/TrashQuentinha/issues"
+  },
+  "homepage": "https://github.com/vserraa/TrashQuentinha#readme"
+}
