@@ -12,3 +12,9 @@ versão 1.1.0 =>
 . Novo método POST no servidor implementado para criação de usuário de forma consistente;
 . Novo método POST no servidor implementado para depósito de quentinha (versão inicial);
 . Implementação de feature que atualiza a página pessoal depois de um depósito de quentinha;
+
+versão 1.2.0 =>
+. Refatoramento de código para aderir a padrões OOP (criação de classe ApiHTTP);
+. Reorganização do diretório do projeto;
+. Criação de package para instalação de dependências;
+. Testes unitários na classe ApiHTTP implementados;
