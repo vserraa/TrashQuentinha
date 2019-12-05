@@ -18,3 +18,10 @@ versão 1.2.0 =>
 . Reorganização do diretório do projeto;
 . Criação de package para instalação de dependências;
 . Testes unitários na classe ApiHTTP implementados;
+
+
+versão 2.0.0 =>
+. Implementação da coleta de recompensas;
+. Criação de um contador para verificar o depósito da quentinha;
+. Integração da aplicação web com o hardware do sistema;
+. Criação de várias rotas no servidor para dar suporte as novas funcionalidades;
