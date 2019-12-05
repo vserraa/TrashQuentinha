@@ -14,6 +14,7 @@ function depositar_quentinha() {
     }, 1000);
 
     setTimeout(function() {
+        /*Aquei tem a verificação se o lixo foi depositado ou nao*/ 
         api.post_quentinha(user.uid, function() {
             window.location.reload();
         });

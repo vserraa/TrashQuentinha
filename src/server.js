@@ -92,7 +92,7 @@ app.post('/confirmarQuentinha', function(req, res) {
 		const db = client.db('TrashQuentinhaDB');
 		var collection = db.collection('quentinhas');
 		var time = req.query['time_stamp'];
-		collection.insertOne({'time_stamp': time}, function(err, result) {
+		collection.insertOne({'time_stamp': parseInt(time)}, function(err, result) {
 			assert.equal(err, null);
 			console.log("Confirmação obtida");
 			console.log(time);
@@ -100,6 +100,21 @@ app.post('/confirmarQuentinha', function(req, res) {
 			client.close();
 		});
 	});
+})
+
+app.get('/ultimaQuentinha', function(req, res) {
+	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
+		const db = client.db('TrashQuentinhaDB');
+		var collection = db.collection('quentinhas');
+		var time = req.query['time_stamp'];
+		collection.find({}).sort({'time_stamp' : -1}).limit(1).toArray( function(err, result) {
+			assert.equal(err, null);
+			console.log("Ultima quentinha depositada obtida");
+			console.log(result);
+			res.send({'ans' : result[0]['time_stamp']});
+			client.close();
+		});
+	});	
 })
 
 var server = app.listen(3000, function () {
