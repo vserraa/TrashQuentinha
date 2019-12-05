@@ -2,7 +2,7 @@ function depositar_quentinha() {
     var user = firebase.auth().currentUser;
     var api = new ApiHTTP();
     var start = new Date().getTime();
-    var final = start + 30000;
+    var final = start + 10000;
 
     console.log(start);
 
@@ -24,12 +24,12 @@ function depositar_quentinha() {
             }
             else {
                 api.post_quentinha(user.uid, function() {
-                    window.alert("Sua quentinha foi confirmada com sucesso.");
+                    //window.alert("Sua quentinha foi confirmada com sucesso.");
                     window.location.reload();
                 });
             }
         })
-    }, 30005); 
+    }, 10005); 
 }
 
 function coletar_recompensa() {

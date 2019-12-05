@@ -87,11 +87,11 @@ app.post('/coletarRecompensa', function(req, res) {
 	});
 }) 
 
-app.get('/confirmarQuentinha', function(req, res) {
+app.post('/confirmarQuentinha', function(req, res) {
 	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
 		const db = client.db('TrashQuentinhaDB');
 		var collection = db.collection('quentinhas');
-		var time = req.query['time_stamp'];
+		var time = new Date().getTime();
 		collection.insertOne({'time_stamp': parseInt(time)}, function(err, result) {
 			assert.equal(err, null);
 			console.log("Confirmação obtida");
