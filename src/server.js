@@ -87,7 +87,7 @@ app.post('/coletarRecompensa', function(req, res) {
 	});
 }) 
 
-app.post('/confirmarQuentinha', function(req, res) {
+app.get('/confirmarQuentinha', function(req, res) {
 	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
 		const db = client.db('TrashQuentinhaDB');
 		var collection = db.collection('quentinhas');

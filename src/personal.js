@@ -2,7 +2,9 @@ function depositar_quentinha() {
     var user = firebase.auth().currentUser;
     var api = new ApiHTTP();
     var start = new Date().getTime();
-    var final = start + 10000;
+    var final = start + 30000;
+
+    console.log(start);
 
     var timer = setInterval(function() {
         var now = new Date().getTime();
@@ -14,11 +16,20 @@ function depositar_quentinha() {
     }, 1000);
 
     setTimeout(function() {
-        /*Aquei tem a verificação se o lixo foi depositado ou nao*/ 
-        api.post_quentinha(user.uid, function() {
-            window.location.reload();
-        });
-    }, 10005); 
+        api.get_ultima_quentinha(function(res) {
+            var val = new Date(res['ans']);
+            if(val < start) {
+                window.alert("Nenhuma quentinha foi depositada. Tente novamente.");
+                window.location.reload();
+            }
+            else {
+                api.post_quentinha(user.uid, function() {
+                    window.alert("Sua quentinha foi confirmada com sucesso.");
+                    window.location.reload();
+                });
+            }
+        })
+    }, 30005); 
 }
 
 function coletar_recompensa() {
