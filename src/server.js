@@ -6,7 +6,7 @@ var db_url = 'mongodb://localhost';
 
 var app = express();
 
-app.use(cors());
+app.use(cors({origin: "*"}));
 
 app.get('/totalQuentinhas', function (req, res) {
 	console.log("in get totalQuentinhas");
@@ -15,9 +15,10 @@ app.get('/totalQuentinhas', function (req, res) {
 		var collection = db.collection('users');
 		var user_email = req.query['email'];
 		var user_UID = req.query['uid'];
+		console.log(user_UID);
+		console.log(user_email);
 		collection.find({UID : user_UID}).toArray( function(err, docs) {
 			assert.equal(err, null);
-			console.log()
 			console.log('Found the following records:');
 			console.log(docs);
 			res.send({'ans' : docs[0]['totalQuentinhas']});
@@ -65,6 +66,36 @@ app.post('/deletarUsuario', function(req, res) {
 		collection.deleteOne({UID: user_UID}, function(err, result) {
 			assert.equal(err, null);
 			console.log("User was deleted.");
+			res.sendStatus(200);
+			client.close();
+		});
+	});
+})
+
+app.post('/coletarRecompensa', function(req, res) {
+	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
+		const db = client.db('TrashQuentinhaDB');
+		var collection = db.collection('users');
+		var user_email = req.query['email'];
+		var user_UID = req.query['uid'];
+		collection.updateOne({UID : user_UID}, { $inc: {'totalQuentinhas' : -3} }, function(err, result) {
+			assert.equal(err, null);
+			console.log("Coleta de recompensa deu bom");
+			res.sendStatus(200);
+			client.close();
+		});
+	});
+}) 
+
+app.post('/confirmarQuentinha', function(req, res) {
+	MongoClient.connect(db_url, {useNewUrlParser : true, useUnifiedTopology : true}, function (err, client) {
+		const db = client.db('TrashQuentinhaDB');
+		var collection = db.collection('quentinhas');
+		var time = req.query['time_stamp'];
+		collection.insertOne({'time_stamp': time}, function(err, result) {
+			assert.equal(err, null);
+			console.log("Confirmação obtida");
+			console.log(time);
 			res.sendStatus(200);
 			client.close();
 		});

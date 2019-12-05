@@ -46,4 +46,15 @@ class ApiHTTP {
 				callback(http.responseText);
 		} 
 	}
+
+	post_coletar_recompensa(uid, callback) {
+		var http = new XMLHttpRequest();
+		const url = this.base_url + "coletarRecompensa?uid=" + uid;
+		http.open("POST", url);
+		http.send();
+		http.onreadystatechange = function() { 
+			if(this.readyState == 4 && this.status == 200)
+				callback(http.responseText);
+		} 
+	}
 }

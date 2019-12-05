@@ -6,6 +6,23 @@ function depositar_quentinha() {
     });
 }
 
+function coletar_recompensa() {
+    var user = firebase.auth().currentUser;
+    var api = new ApiHTTP();
+    var uid = user.uid;
+    api.get_total_quentinhas(uid, function(res) {
+        var valor = res['ans'];
+        if(valor < 3) {
+            window.alert("Você só pode coletar recompensa após ter depositado 3 ou mais quentinhas!");
+        }
+        else {
+            api.post_coletar_recompensa(uid, function() {
+                window.location.reload();
+            });
+        }
+    });
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         document.getElementById("logout_div").style.display = "block";
