@@ -43,6 +43,7 @@ function coletar_recompensa() {
         }
         else {
             api.post_coletar_recompensa(uid, function() {
+                window.alert("Enviamos um email automatico para o fornecedor da quentinha indicando seu desconto na proxima compra.");
                 window.location.reload();
             });
         }
